@@ -79,7 +79,9 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PhotoUrl)
+            <a href="@Url.Action("Details", new { id = Model.StudentID})">
+                <img src="~/Content/Images/@Model.PhotoUrl" alt="Student Picture" title="@Model.Fullname" />
+            </a>
         </dd>
 
         <dt>

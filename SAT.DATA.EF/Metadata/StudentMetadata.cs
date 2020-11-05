@@ -4,7 +4,7 @@ namespace SAT.DATA.EF
 {
     class StudentMetadata
     {
-        
+
         [Required]
         [Display(Name = "First Name")]
         [DisplayFormat(NullDisplayText = "*First Name is required")]
@@ -26,13 +26,15 @@ namespace SAT.DATA.EF
         [DisplayFormat(NullDisplayText = "*Email is required")]
         public string Email { get; set; }
     }
-    
+
     [MetadataType(typeof(StudentMetadata))]
     public partial class Student
     {
-       public string Fullname
-       {
+        [Display(Name = "Student Name")]
+        public string Fullname
+        {
             get { return FirstName + " " + LastName; }
-       }
+        }
     }
 }
+

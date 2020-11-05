@@ -80,7 +80,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PhotoUrl)
+            <img src="~/Content/Images/t_@Model.PhotoUrl" alt="Student Picture" title="@Model.Fullname" />
         </dd>
 
         <dt>
@@ -101,7 +101,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

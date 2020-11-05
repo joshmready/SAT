@@ -1,14 +1,17 @@
 ﻿@model SAT.DATA.EF.Course
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.CourseName;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>Course</h4>
     <hr />
+    <div>
+        <a href="@Url.Action("CoursesSchedule","ScheduledClasses")" style="color:cornflowerblue;">Click here to view schedule for this course</a>
+    </div>
+    <br/>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.CourseName)
@@ -42,22 +45,24 @@
             @Html.DisplayFor(model => model.Curriculum)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Notes)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Notes)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+        }
     </dl>
 </div>
 <p>
